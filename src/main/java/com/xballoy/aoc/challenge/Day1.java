@@ -32,6 +32,19 @@ public class Day1 {
         return 0;
     }
 
+    public long findTriple() {
+        for (long i : numbers) {
+            for (long j : numbers) {
+                for (long k : numbers) {
+                    if (i + j + k == EXPECTED_RESULT) {
+                        return i * j * k;
+                    }
+                }
+            }
+        }
+        return 0;
+    }
+
     public void run() {
         StopWatch stopWatch = new StopWatch();
         LOGGER.info("Running day 1");
@@ -42,5 +55,12 @@ public class Day1 {
 
         LOGGER.info(String.format("Part 1 result: %s", part1Result));
         LOGGER.info(String.format("Part 1 took %d ms", stopWatch.getLastTaskTimeMillis()));
+
+        stopWatch.start("Part 2");
+        final long part2Result = this.findTriple();
+        stopWatch.stop();
+
+        LOGGER.info(String.format("Part 2 result: %s", part2Result));
+        LOGGER.info(String.format("Part 2 took %d ms", stopWatch.getLastTaskTimeMillis()));
     }
 }
