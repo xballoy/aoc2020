@@ -1,42 +1,89 @@
 package com.xballoy.aoc.challenge;
 
+import com.xballoy.aoc.InputFileSupplier;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@DisplayName("Day 2")
 class Day2Test {
 
-    @Test
-    void part1_shouldFindValidPasswordCount() {
-        // Arrange
-        final String input = """
-            1-3 a: abcde
-            1-3 b: cdefg
-            2-9 c: ccccccccc
-            """;
-        final Day2 cut = new Day2(() -> input);
+    @DisplayName("Sample data")
+    @Nested
+    class SampleData {
 
-        // Act
-        final int validPassword = cut.part1FindValidPassword();
+        private String input;
 
-        // Asset
-        assertThat(validPassword).isEqualTo(2);
+        @BeforeEach
+        void setUp() {
+            this.input = """
+                1-3 a: abcde
+                1-3 b: cdefg
+                2-9 c: ccccccccc
+                """;
+        }
+
+        @Test
+        void part1_shouldFindValidPasswordCount() {
+            // Arrange
+            final Day2 cut = new Day2(() -> input);
+
+            // Act
+            final int validPassword = cut.part1FindValidPassword();
+
+            // Asset
+            assertThat(validPassword).isEqualTo(2);
+        }
+
+        @Test
+        void part2_shouldFindValidPasswordCount() {
+            // Arrange
+            final Day2 cut = new Day2(() -> input);
+
+            // Act
+            final int validPassword = cut.part2FindValidPassword();
+
+            // Asset
+            assertThat(validPassword).isEqualTo(1);
+        }
     }
 
-    @Test
-    void part2_shouldFindValidPasswordCount() {
-        // Arrange
-        final String input = """
-            1-3 a: abcde
-            1-3 b: cdefg
-            2-9 c: ccccccccc
-            """;
-        final Day2 cut = new Day2(() -> input);
+    @DisplayName("Real data")
+    @Nested
+    class RealData {
 
-        // Act
-        final int validPassword = cut.part2FindValidPassword();
+        private String input;
 
-        // Asset
-        assertThat(validPassword).isEqualTo(1);
+        @BeforeEach
+        void setUp() {
+            this.input = new InputFileSupplier("input/day2.txt").get();
+        }
+
+        @Test
+        void part1_shouldFindValidPasswordCount() {
+            // Arrange
+            final Day2 cut = new Day2(() -> input);
+
+            // Act
+            final int validPassword = cut.part1FindValidPassword();
+
+            // Asset
+            assertThat(validPassword).isEqualTo(614);
+        }
+
+        @Test
+        void part2_shouldFindValidPasswordCount() {
+            // Arrange
+            final Day2 cut = new Day2(() -> input);
+
+            // Act
+            final int validPassword = cut.part2FindValidPassword();
+
+            // Asset
+            assertThat(validPassword).isEqualTo(354);
+        }
     }
 }

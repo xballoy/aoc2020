@@ -2,9 +2,11 @@ package com.xballoy.aoc.challenge.day2;
 
 import org.assertj.core.api.SoftAssertions;
 import org.assertj.core.api.junit.jupiter.SoftAssertionsExtension;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+@DisplayName("ToPolicy")
 @ExtendWith(SoftAssertionsExtension.class)
 class ToPolicyTest {
 

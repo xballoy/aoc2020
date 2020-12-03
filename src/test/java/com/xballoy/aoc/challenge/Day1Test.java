@@ -1,15 +1,25 @@
 package com.xballoy.aoc.challenge;
 
+import com.xballoy.aoc.InputFileSupplier;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@DisplayName("Day 1")
 class Day1Test {
 
-    @Test
-    void part1_shouldFindPairThatSum2020() {
-        // Arrange
-        final String input = """
+    @DisplayName("Sample data")
+    @Nested
+    class SampleData {
+
+        private String input;
+
+        @BeforeEach
+        void setUp() {
+            this.input = """
             1721
             979
             366
@@ -17,34 +27,66 @@ class Day1Test {
             675
             1456
             """;
+        }
 
-        final Day1 cut = new Day1(() -> input);
+        @Test
+        void part1_shouldFindPairThatSum2020() {
+            // Arrange
+            final Day1 cut = new Day1(() -> input);
 
-        // Act
-        final long result = cut.findPair();
+            // Act
+            final long result = cut.findPair();
 
-        // Assert
-        assertThat(result).isEqualTo(514579);
+            // Assert
+            assertThat(result).isEqualTo(514579);
+        }
+
+        @Test
+        void part2_shouldFindTripleThatSum2020() {
+            // Arrange
+            final Day1 cut = new Day1(() -> input);
+
+            // Act
+            final long result = cut.findTriple();
+
+            // Assert
+            assertThat(result).isEqualTo(241861950);
+        }
     }
 
-    @Test
-    void part2_shouldFindTripleThatSum2020() {
-        // Arrange
-        final String input = """
-            1721
-            979
-            366
-            299
-            675
-            1456
-            """;
+    @DisplayName("Real data")
+    @Nested
+    class RealData {
 
-        final Day1 cut = new Day1(() -> input);
+        private String input;
 
-        // Act
-        final long result = cut.findTriple();
+        @BeforeEach
+        void setUp() {
+            this.input = new InputFileSupplier("input/day1.txt").get();
+        }
 
-        // Assert
-        assertThat(result).isEqualTo(241861950);
+        @Test
+        void part1_shouldFindPairThatSum2020() {
+            // Arrange
+            final Day1 cut = new Day1(() -> input);
+
+            // Act
+            final long result = cut.findPair();
+
+            // Assert
+            assertThat(result).isEqualTo(806656);
+        }
+
+        @Test
+        void part2_shouldFindTripleThatSum2020() {
+            // Arrange
+            final Day1 cut = new Day1(() -> input);
+
+            // Act
+            final long result = cut.findTriple();
+
+            // Assert
+            assertThat(result).isEqualTo(230608320);
+        }
     }
 }
