@@ -1,6 +1,6 @@
 package com.xballoy.aoc.challenge;
 
-import com.xballoy.aoc.InputToListLong;
+import com.xballoy.aoc.InputToLongs;
 import com.xballoy.core.StopWatch;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,7 +17,7 @@ public class Day1 {
 
     public Day1(Supplier<String> inputSupplier) {
         final String input = inputSupplier.get();
-        this.numbers = new InputToListLong().apply(input);
+        this.numbers = new InputToLongs().apply(input);
     }
 
     public long findPair() {

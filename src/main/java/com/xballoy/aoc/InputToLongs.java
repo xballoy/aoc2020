@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class InputToListLong implements Function<String, List<Long>> {
+public class InputToLongs implements Function<String, List<Long>> {
 
     @Override
     public List<Long> apply(final String input) {
