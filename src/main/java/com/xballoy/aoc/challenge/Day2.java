@@ -31,7 +31,7 @@ public class Day2 {
             .apply(input);
     }
 
-    public int findValidPassword() {
+    public int part1FindValidPassword() {
         int valid = 0;
 
         for (Policy policy : policies) {
@@ -50,23 +50,40 @@ public class Day2 {
         return valid;
     }
 
+    public int part2FindValidPassword() {
+        int valid = 0;
+
+        for (Policy policy : policies) {
+            final char[] passwordChars = policy.getPassword().toCharArray();
+
+            boolean pos1Matches = passwordChars[policy.getMin() - 1] == policy.getLetter();
+            boolean pos2Matches = passwordChars[policy.getMax() -1] == policy.getLetter();
+
+            if(pos1Matches ^ pos2Matches) {
+                valid += 1;
+            }
+        }
+
+        return valid;
+    }
+
     public void run() {
         StopWatch stopWatch = new StopWatch();
         LOGGER.info("Running day 2");
 
         stopWatch.start("Part 2");
-        final int part1Result = this.findValidPassword();
+        final int part1Result = this.part1FindValidPassword();
         stopWatch.stop();
 
         LOGGER.info(String.format("Part 1 result: %s", part1Result));
         LOGGER.info(String.format("Part 1 took %d ms", stopWatch.getLastTaskTimeMillis()));
 
-//        stopWatch.start("Part 2");
-//        final long part2Result = this.findTriple();
-//        stopWatch.stop();
-//
-//        LOGGER.info(String.format("Part 2 result: %s", part2Result));
-//        LOGGER.info(String.format("Part 2 took %d ms", stopWatch.getLastTaskTimeMillis()));
+        stopWatch.start("Part 2");
+        final long part2Result = this.part2FindValidPassword();
+        stopWatch.stop();
+
+        LOGGER.info(String.format("Part 2 result: %s", part2Result));
+        LOGGER.info(String.format("Part 2 took %d ms", stopWatch.getLastTaskTimeMillis()));
     }
 
 }
