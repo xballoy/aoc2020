@@ -1,6 +1,6 @@
-# Advent of Code 2020
+# Advent of Code 2020 ![CI](https://github.com/xballoy/aoc2020/workflows/CI/badge.svg)
 
-My solutions for [Advent of Code 2020](https://adventofcode.com/2020/)
+My solutions for [Advent of Code 2020](https://adventofcode.com/2020/):
 
 - [Day 1: Report Repair](src/main/java/com/xballoy/aoc/challenge/Day1.java) ★★
 - [Day 2: Password Philosophy](src/main/java/com/xballoy/aoc/challenge/Day2.java) ★★
