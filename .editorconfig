@@ -13,5 +13,5 @@ trim_trailing_whitespace = true
 [{*.yml, *.feature}]
 indent_size = 2
 
-[src/main/resources/input/*.txt]
+[{src/main/resources/input/*.txt, src/test/resources/input/*.txt}]
 insert_final_newline = false
