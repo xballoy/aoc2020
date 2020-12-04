@@ -42,7 +42,19 @@ class Day4Test {
             final Day4 cut = new Day4(() -> input);
 
             // Act
-            int validPasswords = cut.validPassport();
+            int validPasswords = cut.part1_validPassport();
+
+            // Assert
+            assertThat(validPasswords).isEqualTo(2);
+        }
+
+        @Test
+        void part2_shouldValidatePasswordAttributes() {
+            // Arrange
+            final Day4 cut = new Day4(() -> input);
+
+            // Act
+            int validPasswords = cut.part2_validPassport();
 
             // Assert
             assertThat(validPasswords).isEqualTo(2);
@@ -66,10 +78,22 @@ class Day4Test {
             final Day4 cut = new Day4(() -> input);
 
             // Act
-            int validPasswords = cut.validPassport();
+            int validPasswords = cut.part1_validPassport();
 
             // Assert
             assertThat(validPasswords).isEqualTo(182);
+        }
+
+        @Test
+        void part2_shouldValidatePasswordAttributes() {
+            // Arrange
+            final Day4 cut = new Day4(() -> input);
+
+            // Act
+            int validPasswords = cut.part2_validPassport();
+
+            // Assert
+            assertThat(validPasswords).isEqualTo(109);
         }
     }
 }
