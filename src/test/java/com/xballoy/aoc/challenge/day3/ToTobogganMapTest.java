@@ -1,6 +1,6 @@
 package com.xballoy.aoc.challenge.day3;
 
-import com.xballoy.aoc.InputToStrings;
+import com.xballoy.aoc.InputSupplier;
 import org.assertj.core.api.SoftAssertions;
 import org.assertj.core.api.junit.jupiter.SoftAssertionsExtension;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @DisplayName("ToToTobogganMapTest")
 @ExtendWith(SoftAssertionsExtension.class)
@@ -29,7 +30,7 @@ class ToTobogganMapTest {
             ...........
             #.........#
             """;
-        final List<String> rows = new InputToStrings().apply(input);
+        final List<String> rows = new InputSupplier(() -> input).get().collect(Collectors.toList());
 
         // Act
         final TobogganMap tobogganMap = this.cut.apply(rows);

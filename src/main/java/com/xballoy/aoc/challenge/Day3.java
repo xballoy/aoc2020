@@ -1,22 +1,20 @@
 package com.xballoy.aoc.challenge;
 
-import com.xballoy.aoc.InputToStrings;
+import com.xballoy.aoc.InputSupplier;
 import com.xballoy.aoc.challenge.day3.Slope;
 import com.xballoy.aoc.challenge.day3.ToTobogganMap;
 import com.xballoy.aoc.challenge.day3.TobogganMap;
 
 import java.util.List;
-import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 public class Day3 {
 
     private final TobogganMap tobogganMap;
 
-    public Day3(Supplier<String> inputSupplier) {
-        final String input = inputSupplier.get();
-        this.tobogganMap = new InputToStrings()
-            .andThen(new ToTobogganMap())
-            .apply(input);
+    public Day3(final InputSupplier inputSupplier) {
+        this.tobogganMap = new ToTobogganMap()
+            .apply(inputSupplier.get().collect(Collectors.toList()));
     }
 
     public int slide(List<Slope> slopes) {

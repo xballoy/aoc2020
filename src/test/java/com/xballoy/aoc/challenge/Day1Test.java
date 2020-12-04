@@ -1,5 +1,6 @@
 package com.xballoy.aoc.challenge;
 
+import com.xballoy.aoc.InputSupplier;
 import com.xballoy.aoc.InputFileSupplier;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -32,7 +33,7 @@ class Day1Test {
         @Test
         void part1_shouldFindPairThatSum2020() {
             // Arrange
-            final Day1 cut = new Day1(() -> input);
+            final Day1 cut = new Day1(new InputSupplier(() -> input));
 
             // Act
             final long result = cut.findPair();
@@ -44,7 +45,7 @@ class Day1Test {
         @Test
         void part2_shouldFindTripleThatSum2020() {
             // Arrange
-            final Day1 cut = new Day1(() -> input);
+            final Day1 cut = new Day1(new InputSupplier(() -> input));
 
             // Act
             final long result = cut.findTriple();
@@ -68,7 +69,7 @@ class Day1Test {
         @Test
         void part1_shouldFindPairThatSum2020() {
             // Arrange
-            final Day1 cut = new Day1(() -> input);
+            final Day1 cut = new Day1(new InputSupplier(() -> input));
 
             // Act
             final long result = cut.findPair();
@@ -80,7 +81,7 @@ class Day1Test {
         @Test
         void part2_shouldFindTripleThatSum2020() {
             // Arrange
-            final Day1 cut = new Day1(() -> input);
+            final Day1 cut = new Day1(new InputSupplier(() -> input));
 
             // Act
             final long result = cut.findTriple();

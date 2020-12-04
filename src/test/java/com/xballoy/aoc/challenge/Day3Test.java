@@ -1,6 +1,7 @@
 package com.xballoy.aoc.challenge;
 
 import com.xballoy.aoc.InputFileSupplier;
+import com.xballoy.aoc.InputSupplier;
 import com.xballoy.aoc.challenge.day3.Slope;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -49,7 +50,7 @@ class Day3Test {
         })
         void part1_shouldSlideWithSlopeR3D1(final Slope slope, int expectedTrees) {
             // Arrange
-            final Day3 cut = new Day3(() -> input);
+            final Day3 cut = new Day3(new InputSupplier(() -> input));
 
             // Act
             int encounteredTrees = cut.slide(slope);
@@ -61,7 +62,7 @@ class Day3Test {
         @Test
         void part2_shouldTryMultipleSlope() {
             // Arrange
-            final Day3 cut = new Day3(() -> input);
+            final Day3 cut = new Day3(new InputSupplier(() -> input));
 
             // Act
             int encounteredTrees = cut.slide(Arrays.asList(
@@ -91,7 +92,7 @@ class Day3Test {
         @Test
         void part1_shouldSlideWithSlopeR3D1() {
             // Arrange
-            final Day3 cut = new Day3(() -> input);
+            final Day3 cut = new Day3(new InputSupplier(() -> input));
 
             // Act
             int encounteredTrees = cut.slide(Slope.R3_D1);
@@ -103,7 +104,7 @@ class Day3Test {
         @Test
         void part2_shouldTryMultipleSlope() {
             // Arrange
-            final Day3 cut = new Day3(() -> input);
+            final Day3 cut = new Day3(new InputSupplier(() -> input));
 
             // Act
             int encounteredTrees = cut.slide(Arrays.asList(

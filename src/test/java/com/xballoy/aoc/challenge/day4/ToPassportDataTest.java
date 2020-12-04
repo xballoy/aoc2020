@@ -1,6 +1,6 @@
 package com.xballoy.aoc.challenge.day4;
 
-import com.xballoy.aoc.InputToStrings;
+import com.xballoy.aoc.InputSupplier;
 import org.assertj.core.api.SoftAssertions;
 import org.assertj.core.api.junit.jupiter.SoftAssertionsExtension;
 import org.junit.jupiter.api.Test;
@@ -8,6 +8,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import static com.xballoy.aoc.challenge.day4.PassportAttribute.*;
 
@@ -32,7 +33,7 @@ class ToPassportDataTest {
                 hcl:#cfa07d eyr:2025 pid:166559648
                 iyr:2011 ecl:brn hgt:59in
                 """;
-        final List<String> lines = new InputToStrings().apply(input);
+        final List<String> lines = new InputSupplier(() -> input).get().collect(Collectors.toList());
 
         // Act
         final List<Map<PassportAttribute, String>> passwords = new ToPassportData().apply(lines);
