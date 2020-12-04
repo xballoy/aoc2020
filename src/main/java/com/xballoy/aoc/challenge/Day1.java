@@ -1,9 +1,9 @@
 package com.xballoy.aoc.challenge;
 
-import com.xballoy.aoc.InputToLongs;
+import com.xballoy.aoc.InputSupplier;
 
 import java.util.List;
-import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 public class Day1 {
 
@@ -11,9 +11,10 @@ public class Day1 {
 
     private final List<Long> numbers;
 
-    public Day1(Supplier<String> inputSupplier) {
-        final String input = inputSupplier.get();
-        this.numbers = new InputToLongs().apply(input);
+    public Day1(final InputSupplier inputSupplier) {
+        this.numbers = inputSupplier.get()
+            .map(Long::parseLong)
+            .collect(Collectors.toList());
     }
 
     public long findPair() {

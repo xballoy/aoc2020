@@ -1,6 +1,7 @@
 package com.xballoy.aoc.challenge;
 
 import com.xballoy.aoc.InputFileSupplier;
+import com.xballoy.aoc.InputSupplier;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -29,7 +30,7 @@ class Day2Test {
         @Test
         void part1_shouldFindValidPasswordCount() {
             // Arrange
-            final Day2 cut = new Day2(() -> input);
+            final Day2 cut = new Day2(new InputSupplier(() -> input));
 
             // Act
             final int validPassword = cut.part1FindValidPassword();
@@ -41,7 +42,7 @@ class Day2Test {
         @Test
         void part2_shouldFindValidPasswordCount() {
             // Arrange
-            final Day2 cut = new Day2(() -> input);
+            final Day2 cut = new Day2(new InputSupplier(() -> input));
 
             // Act
             final int validPassword = cut.part2FindValidPassword();
@@ -65,7 +66,7 @@ class Day2Test {
         @Test
         void part1_shouldFindValidPasswordCount() {
             // Arrange
-            final Day2 cut = new Day2(() -> input);
+            final Day2 cut = new Day2(new InputSupplier(() -> input));
 
             // Act
             final int validPassword = cut.part1FindValidPassword();
@@ -77,7 +78,7 @@ class Day2Test {
         @Test
         void part2_shouldFindValidPasswordCount() {
             // Arrange
-            final Day2 cut = new Day2(() -> input);
+            final Day2 cut = new Day2(new InputSupplier(() -> input));
 
             // Act
             final int validPassword = cut.part2FindValidPassword();
