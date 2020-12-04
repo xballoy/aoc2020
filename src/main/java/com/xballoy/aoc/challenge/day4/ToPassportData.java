@@ -2,7 +2,7 @@ package com.xballoy.aoc.challenge.day4;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -14,10 +14,10 @@ public class ToPassportData implements Function<List<String>, List<Map<PassportA
     public List<Map<PassportAttribute, String>> apply(final List<String> lines) {
         List<Map<PassportAttribute, String>> passports = new ArrayList<>();
 
-        Map<PassportAttribute, String> passport = new HashMap<>();
+        Map<PassportAttribute, String> passport = new EnumMap<>(PassportAttribute.class);
         for (String line : lines) {
             if("".equals(line)) {
-                passports.add(new HashMap<>(passport));
+                passports.add(new EnumMap<>(passport));
                 passport.clear();
                 continue;
             }

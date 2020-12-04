@@ -18,7 +18,7 @@ public class Day4 {
             .apply(inputSupplier.get().collect(Collectors.toList()));
     }
 
-    public int part1_validPassport() {
+    public int part1ValidPassport() {
         int validPassportCount = 0;
 
         for (Map<PassportAttribute, String> passport: passportsData) {
@@ -33,7 +33,7 @@ public class Day4 {
         return validPassportCount;
     }
 
-    public int part2_validPassport() {
+    public int part2ValidPassport() {
         int validPassportCount = 0;
 
         for (Map<PassportAttribute, String> passport: passportsData) {

@@ -43,7 +43,7 @@ class Day4Test {
             final Day4 cut = new Day4(new InputSupplier(() -> input));
 
             // Act
-            int validPasswords = cut.part1_validPassport();
+            int validPasswords = cut.part1ValidPassport();
 
             // Assert
             assertThat(validPasswords).isEqualTo(2);
@@ -55,7 +55,7 @@ class Day4Test {
             final Day4 cut = new Day4(new InputSupplier(() -> input));
 
             // Act
-            int validPasswords = cut.part2_validPassport();
+            int validPasswords = cut.part2ValidPassport();
 
             // Assert
             assertThat(validPasswords).isEqualTo(2);
@@ -79,7 +79,7 @@ class Day4Test {
             final Day4 cut = new Day4(new InputSupplier(() -> input));
 
             // Act
-            int validPasswords = cut.part1_validPassport();
+            int validPasswords = cut.part1ValidPassport();
 
             // Assert
             assertThat(validPasswords).isEqualTo(182);
@@ -91,7 +91,7 @@ class Day4Test {
             final Day4 cut = new Day4(new InputSupplier(() -> input));
 
             // Act
-            int validPasswords = cut.part2_validPassport();
+            int validPasswords = cut.part2ValidPassport();
 
             // Assert
             assertThat(validPasswords).isEqualTo(109);

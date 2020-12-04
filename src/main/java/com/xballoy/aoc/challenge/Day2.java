@@ -29,7 +29,7 @@ public class Day2 {
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
             final long countLetter = Optional.ofNullable(passwordMappedByChar.get(policy.getLetter()))
-                .orElseGet(() -> 0L);
+                .orElse(0L);
 
             if (countLetter >= policy.getMin() && countLetter <= policy.getMax()) {
                 valid += 1;
