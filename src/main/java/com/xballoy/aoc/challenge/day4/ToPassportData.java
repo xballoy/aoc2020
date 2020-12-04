@@ -8,13 +8,13 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class ToPassportData implements Function<List<String>, List<Map<String, String>>> {
+public class ToPassportData implements Function<List<String>, List<Map<PassportAttribute, String>>> {
 
     @Override
-    public List<Map<String, String>> apply(final List<String> lines) {
-        List<Map<String, String>> passports = new ArrayList<>();
+    public List<Map<PassportAttribute, String>> apply(final List<String> lines) {
+        List<Map<PassportAttribute, String>> passports = new ArrayList<>();
 
-        Map<String, String> passport = new HashMap<>();
+        Map<PassportAttribute, String> passport = new HashMap<>();
         for (String line : lines) {
             if("".equals(line)) {
                 passports.add(new HashMap<>(passport));
@@ -22,9 +22,9 @@ public class ToPassportData implements Function<List<String>, List<Map<String, S
                 continue;
             }
 
-            final Map<String, String> partialPassportData = Arrays.stream(line.split(" "))
+            final Map<PassportAttribute, String> partialPassportData = Arrays.stream(line.split(" "))
                 .map(it -> it.split(":"))
-                .collect(Collectors.toMap(p -> p[0], p -> p[1]));
+                .collect(Collectors.toMap(p -> PassportAttribute.fromKey(p[0]), p -> p[1]));
             passport.putAll(partialPassportData);
         }
 

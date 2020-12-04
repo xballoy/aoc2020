@@ -9,6 +9,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import java.util.List;
 import java.util.Map;
 
+import static com.xballoy.aoc.challenge.day4.PassportAttribute.*;
+
 @ExtendWith(SoftAssertionsExtension.class)
 class ToPassportDataTest {
 
@@ -33,14 +35,14 @@ class ToPassportDataTest {
         final List<String> lines = new InputToStrings().apply(input);
 
         // Act
-        final List<Map<String, String>> passwords = new ToPassportData().apply(lines);
+        final List<Map<PassportAttribute, String>> passwords = new ToPassportData().apply(lines);
 
         // Assert
         softly.assertThat(passwords).hasSize(4);
 
-        softly.assertThat(passwords.get(0)).containsOnlyKeys("ecl", "pid", "eyr", "hcl", "byr", "iyr", "cid", "hgt");
-        softly.assertThat(passwords.get(1)).containsOnlyKeys("ecl", "pid", "eyr", "hcl", "byr", "iyr", "cid");
-        softly.assertThat(passwords.get(2)).containsOnlyKeys("ecl", "pid", "eyr", "hcl", "byr", "iyr", "hgt");
-        softly.assertThat(passwords.get(3)).containsOnlyKeys("ecl", "pid", "eyr", "hcl", "iyr", "hgt");
+        softly.assertThat(passwords.get(0)).containsOnlyKeys(ECL, PID, EYR, HCL, BYR, IYR, CID, HGT);
+        softly.assertThat(passwords.get(1)).containsOnlyKeys(ECL, PID, EYR, HCL, BYR, IYR, CID);
+        softly.assertThat(passwords.get(2)).containsOnlyKeys(ECL, PID, EYR, HCL, BYR, IYR, HGT);
+        softly.assertThat(passwords.get(3)).containsOnlyKeys(ECL, PID, EYR, HCL, IYR, HGT);
     }
 }
