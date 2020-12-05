@@ -58,5 +58,16 @@ class Day5Test {
             // Assert
             assertThat(highestSeatId).isEqualTo(864);
         }
+
+        @Test
+        void part2_shouldFindSeat() {
+            final Day5 cut = new Day5(new InputSupplier(() -> input));
+
+            // Act
+            final int highestSeatId = cut.part2();
+
+            // Assert
+            assertThat(highestSeatId).isEqualTo(739);
+        }
     }
 }
