@@ -16,17 +16,18 @@ class Day6Test {
     @Nested
     class SampleData {
 
-        @Test
-        void part1_shouldCountDistinctResponsePerGroup() {
-            // Arrange
-            final String input = """
+        private String input;
+
+        @BeforeEach
+        void setUp() {
+            this.input = """
                 abc
 
                 a
                 b
                 c
 
-                ab
+                ba
                 ac
 
                 a
@@ -36,13 +37,30 @@ class Day6Test {
 
                 b
                 """;
-            final Day6 cut = new Day6(new InputSupplier(() -> input));
+        }
+
+        @Test
+        void part1_shouldFindQuestionsAnyoneAnsweredYes() {
+            // Arrange
+            final Day cut = new Day6(new InputSupplier(() -> this.input));
 
             // Act
             final int result = cut.part1();
 
             // Assert
             assertThat(result).isEqualTo(11);
+        }
+
+        @Test
+        void part2_shouldFindQuestionsEveryoneAnsweredYes() {
+            // Arrange
+            final Day cut = new Day6(new InputSupplier(() -> this.input));
+
+            // Act
+            final int result = cut.part2();
+
+            // Assert
+            assertThat(result).isEqualTo(6);
         }
     }
 
@@ -58,11 +76,24 @@ class Day6Test {
         }
 
         @Test
-        void part1_shouldCountDistinctResponsePerGroup() {
-            final Day6 cut = new Day6(new InputSupplier(() -> input));
+        void part1_shouldFindQuestionsAnyoneAnsweredYes() {
+            // Arrange
+            final Day cut = new Day6(new InputSupplier(() -> input));
 
             // Act
             final int result = cut.part1();
+
+            // Assert
+            assertThat(result).isEqualTo(6775);
+        }
+
+        @Test
+        void part2_shouldFindQuestionsEveryoneAnsweredYes() {
+            // Arrange
+            final Day cut = new Day6(new InputSupplier(() -> input));
+
+            // Act
+            final int result = cut.part2();
 
             // Assert
             assertThat(result).isEqualTo(6775);
