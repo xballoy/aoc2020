@@ -96,7 +96,7 @@ class Day6Test {
             final int result = cut.part2();
 
             // Assert
-            assertThat(result).isEqualTo(6775);
+            assertThat(result).isEqualTo(3356);
         }
     }
 }
