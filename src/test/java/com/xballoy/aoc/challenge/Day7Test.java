@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@DisplayName("Day 6")
+@DisplayName("Day 7")
 class Day7Test {
 
     @DisplayName("Sample data")
