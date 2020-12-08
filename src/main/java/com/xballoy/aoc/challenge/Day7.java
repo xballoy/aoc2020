@@ -4,6 +4,7 @@ import com.xballoy.aoc.InputSupplier;
 import com.xballoy.aoc.challenge.day7.Rule;
 import com.xballoy.aoc.challenge.day7.RuleParser;
 import org.jgrapht.Graph;
+import org.jgrapht.Graphs;
 import org.jgrapht.alg.shortestpath.DijkstraShortestPath;
 import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.DirectedMultigraph;
@@ -14,6 +15,7 @@ import java.util.stream.Collectors;
 
 public class Day7 implements Day {
 
+    private static final String SHINY_GOLD = "shiny gold";
     private final Graph<String, DefaultEdge> graph;
 
     public Day7(final InputSupplier inputSupplier) {
@@ -42,14 +44,36 @@ public class Day7 implements Day {
     public int part1() {
         DijkstraShortestPath<String, DefaultEdge> dijkstraAlg = new DijkstraShortestPath<>(graph);
 
-        return (int) graph.vertexSet().stream().map(it -> dijkstraAlg.getPath(it, "shiny gold"))
+        return (int) graph.vertexSet().stream().map(it -> dijkstraAlg.getPath(it, SHINY_GOLD))
             .filter(Objects::nonNull)
-            .filter(it -> !"shiny gold".equals(it.getStartVertex()))
+            .filter(it -> !SHINY_GOLD.equals(it.getStartVertex()))
             .count();
     }
 
     @Override
     public int part2() {
-        return 0;
+        return getNumberOfBags(SHINY_GOLD);
     }
+
+    private int getNumberOfBags(final String vertex) {
+        final List<String> children = Graphs.successorListOf(graph, vertex);
+        if (children.isEmpty()) {
+            return 0;
+        }
+
+        return children.stream()
+            .map(this::getNumberOfBags)
+            .reduce(children.size(), Integer::sum);
+    }
+
+//    private int foo(final String vertex, int count) {
+//        final List<String> children = Graphs.successorListOf(graph, vertex);
+//        if (children.isEmpty()) {
+//            return count;
+//        }
+//
+//        return children.stream()
+//            .map(it -> foo(it, count + 1))
+//            .reduce(0, Integer::sum);
+//    }
 }
