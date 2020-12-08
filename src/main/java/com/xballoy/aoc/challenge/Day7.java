@@ -66,14 +66,4 @@ public class Day7 implements Day {
             .reduce(children.size(), Integer::sum);
     }
 
-//    private int foo(final String vertex, int count) {
-//        final List<String> children = Graphs.successorListOf(graph, vertex);
-//        if (children.isEmpty()) {
-//            return count;
-//        }
-//
-//        return children.stream()
-//            .map(it -> foo(it, count + 1))
-//            .reduce(0, Integer::sum);
-//    }
 }
