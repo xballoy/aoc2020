@@ -1,5 +1,7 @@
 package com.xballoy.aoc.challenge.day8;
 
+import com.xballoy.aoc.AdventOfCodeException;
+
 public class Instruction {
 
     private final Operation operation;
@@ -16,5 +18,13 @@ public class Instruction {
 
     public int getArgument() {
         return this.argument;
+    }
+
+    public Instruction flipOperation() {
+        return switch (operation) {
+            case JMP -> new Instruction(Operation.NOP, this.getArgument());
+            case NOP -> new Instruction(Operation.JMP, this.getArgument());
+            default -> throw new AdventOfCodeException(String.format("Flip is not supported on %s", operation));
+        };
     }
 }

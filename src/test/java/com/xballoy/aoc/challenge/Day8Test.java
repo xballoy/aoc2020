@@ -44,6 +44,41 @@ class Day8Test {
             // Assert
             assertThat(result).isEqualTo(5);
         }
+
+        @Test
+        void part1_shouldTerminate_whenValidProgram() {
+            // Arrange
+            final String input = """
+                nop +0
+                acc +1
+                jmp +4
+                acc +3
+                jmp -3
+                acc -99
+                acc +1
+                nop -4
+                acc +6
+                """;
+            final Day cut = new Day8(new InputSupplier(() -> input));
+
+            // Act
+            final int result = cut.part1();
+
+            // Assert
+            assertThat(result).isEqualTo(8);
+        }
+
+        @Test
+        void part2_shouldFixOperationIssue() {
+            // Arrange
+            final Day cut = new Day8(new InputSupplier(() -> this.input));
+
+            // Act
+            final int result = cut.part2();
+
+            // Assert
+            assertThat(result).isEqualTo(8);
+        }
     }
 
     @DisplayName("Real data")
@@ -67,6 +102,18 @@ class Day8Test {
 
             // Assert
             assertThat(result).isEqualTo(1451);
+        }
+
+        @Test
+        void part2_shouldFixOperationIssue() {
+            // Arrange
+            final Day cut = new Day8(new InputSupplier(() -> input));
+
+            // Act
+            final int result = cut.part2();
+
+            // Assert
+            assertThat(result).isEqualTo(1160);
         }
     }
 }

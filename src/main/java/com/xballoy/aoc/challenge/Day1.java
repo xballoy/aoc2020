@@ -1,5 +1,6 @@
 package com.xballoy.aoc.challenge;
 
+import com.xballoy.aoc.AdventOfCodeException;
 import com.xballoy.aoc.InputSupplier;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class Day1 {
             }
         }
 
-        return 0;
+        throw new AdventOfCodeException("Unable to find a solution");
     }
 
     public long findTriple() {
@@ -39,6 +40,7 @@ public class Day1 {
                 }
             }
         }
-        return 0;
+
+        throw new AdventOfCodeException("Unable to find a solution");
     }
 }
