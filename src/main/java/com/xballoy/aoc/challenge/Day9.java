@@ -17,11 +17,40 @@ public class Day9 {
     }
 
     public long part1(final int preamble) {
-        for (int i = preamble; i < numbers.size(); i++) {
-            List<Long> findPairIn = numbers.subList(i - preamble, i + 1);
-            final Long expectedNumber = numbers.get(i);
+        return findInvalidNumber(preamble);
+    }
 
-            boolean valid = foo(expectedNumber, findPairIn);
+    public long part2(final int preamble) {
+        final long invalidNumber = findInvalidNumber(preamble);
+
+        for (int start = 0; start < numbers.size(); start++) {
+            for (int end = 0; end < numbers.size(); end++) {
+                if(end - start < 2) {
+                    continue;
+                }
+
+                final List<Long> subSet = numbers.subList(start, end)
+                    .stream()
+                    .sorted()
+                    .collect(Collectors.toList());
+                final Long sumSubset = subSet.stream()
+                    .reduce(0L, Long::sum);
+
+                if(sumSubset == invalidNumber) {
+                    return subSet.get(0) + subSet.get(subSet.size() - 1);
+                }
+            }
+        }
+
+        throw new AdventOfCodeException("Unable to find a solution");
+    }
+
+    private long findInvalidNumber(final int preamble) {
+        for (int i = preamble; i < numbers.size(); i++) {
+            List<Long> findPairIn = numbers.subList(i - preamble, i);
+            final long expectedNumber = numbers.get(i);
+
+            boolean valid = isValidNumber(expectedNumber, findPairIn);
             if(!valid) {
                 return expectedNumber;
             }
@@ -30,7 +59,7 @@ public class Day9 {
         throw new AdventOfCodeException("Unable to find a solution");
     }
 
-    private boolean foo(final Long expected, final List<Long> searchIn) {
+    private boolean isValidNumber(final Long expected, final List<Long> searchIn) {
         for (int i = 0; i < searchIn.size(); i++) {
             for (int j = 0; j < searchIn.size(); j++) {
                 if(i == j) {

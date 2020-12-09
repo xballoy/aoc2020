@@ -55,6 +55,18 @@ class Day9Test {
             // Assert
             assertThat(result).isEqualTo(127L);
         }
+
+        @Test
+        void part2_shouldFindEncryptionWeakness() {
+            // Arrange
+            final Day9 cut = new Day9(new InputSupplier(() -> this.input));
+
+            // Act
+            final long result = cut.part2(5);
+
+            // Assert
+            assertThat(result).isEqualTo(62L);
+        }
     }
 
     @DisplayName("Real data")
@@ -78,6 +90,18 @@ class Day9Test {
 
             // Assert
             assertThat(result).isEqualTo(21806024L);
+        }
+
+        @Test
+        void part2_shouldFindEncryptionWeakness() {
+            // Arrange
+            final Day9 cut = new Day9(new InputSupplier(() -> this.input));
+
+            // Act
+            final long result = cut.part2(25);
+
+            // Assert
+            assertThat(result).isEqualTo(2986195L);
         }
     }
 }
