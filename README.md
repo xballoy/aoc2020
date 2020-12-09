@@ -12,3 +12,4 @@ My solutions for [Advent of Code 2020](https://adventofcode.com/2020/):
 - [Day 6: Custom Customs](src/main/java/com/xballoy/aoc/challenge/Day6.java) ★★
 - [Day 7: Handy Haversacks](src/main/java/com/xballoy/aoc/challenge/Day7.java) ★★
 - [Day 8: Handheld Halting](src/main/java/com/xballoy/aoc/challenge/Day8.java) ★★
+- [Day 9: Encoding Error](src/main/java/com/xballoy/aoc/challenge/Day9.java) ★
